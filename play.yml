@@ -1,0 +1,24 @@
+---
+- hosts: all
+  ignore_errors: yes
+  become: yes
+  tasks:
+    - name: Create user
+      user:
+        name: Komi
+        comment: Komi ATTIOGBE
+
+
+    - name: Create directry
+      file: 
+       path: /tmp/devop-ans
+       owner: Komi
+       state: directory
+       mode: "0777"
+
+    - name: Create file
+      file:
+       path: /tmp/ansible-class
+       owner: Komi
+       state: touch
+       mode: "0600"   
